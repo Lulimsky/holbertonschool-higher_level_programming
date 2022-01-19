@@ -6,7 +6,7 @@ class Square:
     """Square instance with private size attribute"""
     def __init__(self, size):
         self.size = size
-    
+
     """Retrive size"""
     @property
     def size(self):
