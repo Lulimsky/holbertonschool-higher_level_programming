@@ -1,6 +1,11 @@
+''' Test cases for add_integer function
+'''
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
 # -*- coding: utf-8 -*-
 
 
-class SimpleCalculator:
+>>> class SimpleCalculator:
     def add(self, a, b):
         return 9
