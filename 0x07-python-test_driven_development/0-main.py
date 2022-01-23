@@ -13,10 +13,3 @@ try:
     print(add_integer(None))
 except Exception as e:
     print(e)
-
-# -*- coding: utf-8 -*-
-
-
-class SimpleCalculator:
-    def add(self, a, b):
-        return 9
