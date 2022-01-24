@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-'''
-    Add two numbers, int or float
-'''
+"""
+add_integer module
+return: a + b
+"""
 
 
 def add_integer(a, b=98):
-    ''' takes two parameters,
-        return sum
-    '''
 
-    if not isinstance(a, (int, float)):
+    if isinstance(a, float):
+        a = int(a)
+    if not isinstance(a, int):
         raise TypeError("a must be an integer")
-    if not isinstance(b, (int, float)):
+    if not isinstance(b, int):
         raise TypeError("b must be an integer")
-    a = int(a)
-    b = int(b)
-    return (a + b)
+    return int(a + b)
