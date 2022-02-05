@@ -11,13 +11,13 @@ def roman_to_int(roman_string):
             'D': 500,
             'M': 1000
             }
-    res = 0
+    total = 0
     for c in range(len(roman_string)):
         if roman_string[c] not in roman_nums.keys():
             return 0
-        if (c != (len(roman_string) - 1) and roman_num.get(roman_string[c])
-            < roman_num.get(roman_string[c + 1])):
-                res += roman_nums.get(roman_string[c]) * -1
+        if (c != (len(roman_string) - 1) and roman_nums.get(roman_string[c])
+            < roman_nums.get(roman_string[c + 1])):
+                total += roman_nums.get(roman_string[c]) * -1
         else:
-            res += roman_nums.get(roman_string[c], 0)
-    return res
+            total += roman_nums.get(roman_string[c], 0)
+    return total
