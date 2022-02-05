@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import requests
 import sys
 
@@ -24,7 +26,7 @@ data = {
     'holdthedoor': (None, 'enviar'),
 }
 
-for i in range(0, 1):
+for i in range(0, 1024):
   # Send POST request
   response = requests.post(URI, data=data)
  
