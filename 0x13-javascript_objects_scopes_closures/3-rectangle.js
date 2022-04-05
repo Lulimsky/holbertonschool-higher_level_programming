@@ -13,10 +13,9 @@ module.exports = class Rectangle {
     this.height = h;
   }
 
-  print (character) {
-    character = 'X';
+  print () {
     for (let rect = 0; rect < this.height; rect++) {
-      console.log(character.repeat(this.width));
+      console.log('X'.repeat(this.width));
     }
   }
 };
