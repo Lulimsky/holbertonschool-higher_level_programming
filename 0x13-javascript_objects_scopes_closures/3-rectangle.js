@@ -14,8 +14,6 @@ module.exports = class Rectangle {
   }
 
   print () {
-    for (let rect = 0; rect < this.height; rect++) {
-      console.log('X'.repeat(this.width));
-    }
+    console.log(('X'.repeat(this.width) + '\n').repeat(this.height - 1) + 'X'.repeat(this.width));
   }
 };
