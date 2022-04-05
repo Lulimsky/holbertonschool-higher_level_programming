@@ -5,9 +5,8 @@
 module.exports = class Rectangle {
   constructor (w, h) {
     if (((w = parseInt(w)) > 0) && ((h = parseInt(h)) > 0)) {
-      return;
+      this.width = w;
+      this.height = h;
     }
-    this.width = w;
-    this.height = h;
   }
 };
