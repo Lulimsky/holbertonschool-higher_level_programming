@@ -1,20 +1,27 @@
 #!/usr/bin/python3
 """
-Contains State class and Base, an instance of declarative_base()
+Creates the State "California" with the City "San Francisco" from a DB
 """
-from sqlalchemy import Column, Integer, String, MetaData
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+import sys
+from relationship_state import Base, State
+from relationship_city import City
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
-mymetadata = MetaData()
-Base = declarative_base(metadata=mymetadata)
 
+if __name__ == '__main__':
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
+                           format(sys.argv[1], sys.argv[2], sys.argv[3]),
+                           pool_pre_ping=True)
+    Base.metadata.create_all(engine)
 
-class State(Base):
-    """
-    Class with id and name attributes of each state
-    """
-    __tablename__ = 'states'
-    id = Column(Integer, unique=True, nullable=False, primary_key=True)
-    name = Column(String(128), nullable=False)
-    cities = relationship("City", backref="states")
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    newState = State(name='California')
+    newCity = City(name='San Francisco')
+    newState.cities.append(newCity)
+
+    session.add(newState)
+    session.add(newCity)
+    session.commit()
