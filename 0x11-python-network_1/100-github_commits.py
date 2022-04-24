@@ -9,7 +9,7 @@ API to display your id
 if __name__ == "__main__":
     import requests
     from sys import argv
-    
+
     url = "https://api.github.com/repos/{}/{}/commits".format(argv[2], argv[1])
     html = requests.get(url)
     commits = html.json()
