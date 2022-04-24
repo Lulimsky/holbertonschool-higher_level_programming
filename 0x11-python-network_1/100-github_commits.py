@@ -9,12 +9,10 @@ API to display your id
 if __name__ == "__main__":
     import requests
     from sys import argv
-
-    username = argv[1]
-    password = argv[2]
-    try:
-        html = requests.get('https://api.github.com/user',
-                            auth=(argv[1], argv[2])).json()
-        print(html.get('id'))
-    except:
-        print("None")
+    
+    url = "https://api.github.com/repos/{}/{}/commits".format(argv[2], argv[1])
+    html = requests.get(url)
+    commits = html.json()
+    for commit in commits[:10]:
+        print(commit.get('sha'), end=': ')
+        print(commit.get('commit').get('author').get('name'))
